@@ -7,9 +7,6 @@ from .models import TagConfiguration
 import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from .forms import TagConfigurationForm
-from .models import TagConfiguration
-
 @login_required
 def logo_upload(request):
     if request.method == "POST":
@@ -91,6 +88,7 @@ def create_or_update_tag_configuration(request, id=None):
     }
     template_name = 'configurations/add_tag.html' if instance else 'configurations/add_tag.html'
     return render(request, template_name, context)
+
 @csrf_exempt
 def update_tag_configuration(request, id=None):
     config = get_object_or_404(TagConfiguration, pk=id)
