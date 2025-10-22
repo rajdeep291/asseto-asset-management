@@ -37,7 +37,7 @@ DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = ['127.0.0.1', '.up.railway.app','*']
 
-CSRF_TRUSTED_ORIGINS = ['https://*.onrender.com','https://2b3c17349fd6.ngrok-free.app',]
+CSRF_TRUSTED_ORIGINS = ['https://*.onrender.com']
 
 LOCALHOST_URL = 'http:127.0.0.1:8000'
 DEV_URL = os.environ.get('DEV_URL') if os.getcwd() == "/app" else None
@@ -123,7 +123,6 @@ DATABASES = {
         },
     }
 }
-
 # DATABASES = {
 #         'default': {
 #             'ENGINE': 'django.db.backends.sqlite3',

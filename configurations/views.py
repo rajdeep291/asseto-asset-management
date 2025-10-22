@@ -9,11 +9,6 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .forms import TagConfigurationForm
 from .models import TagConfiguration
-import json
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from .forms import TagConfigurationForm
-from .models import TagConfiguration
 
 @login_required
 def logo_upload(request):
@@ -125,21 +120,4 @@ def toggle_default_settings(request, id):
     config = get_object_or_404(TagConfiguration, pk=id, organization=request.user.organization)
     config.use_default_settings = not config.use_default_settings
     config.save()
-    return 
-def delete_favicon(request, id):
-    try:
-        get_logo=get_object_or_404(BrandingImages,pk=id)
-        get_logo.favicon=None
-        get_logo.save()
-    except Exception as e:
-        print(e)
-    return redirect('configurations:upload_logo')
-
-def delete_login_page_logo(request, id):
-    try:
-        get_logo=get_object_or_404(BrandingImages,pk=id)
-        get_logo.login_page_logo=None
-        get_logo.save()
-    except Exception as e:
-        print(e)
-    return redirect('configurations:upload_logo')
+    return
