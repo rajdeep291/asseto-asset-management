@@ -7,6 +7,7 @@ from .models import TagConfiguration
 import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+
 @login_required
 def logo_upload(request):
     if request.method == "POST":
