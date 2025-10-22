@@ -14,4 +14,6 @@ urlpatterns=[
     # path('update-tag-configuration/<str:id>/', views.update_tag_configuration, name='update_tag_configuration'),
     path('list-tag-configuration/', views.list_tag_configurations, name='list_tag'),
     path('toggle-default-settings/<str:id>/', views.toggle_default_settings, name='toggle_default_settings'),
+    path('delete-favicon/<int:id>',views.delete_favicon,name='delete_favicon'),
+    path('delete-login-page-logo/<int:id>',views.delete_login_page_logo,name='delete_login_page_logo')
 ]
