@@ -1,10 +1,13 @@
 import os
 from django.contrib import messages
+from django.contrib import messages
 import uuid
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 from configurations.models import BrandingImages
 
+def update_files_name(request,logo,favicon,login_page_logo):
+    max_file_size=5*1024*1024
 def update_files_name(request,logo,favicon,login_page_logo):
     max_file_size=5*1024*1024
     my_uuid=uuid.uuid4()

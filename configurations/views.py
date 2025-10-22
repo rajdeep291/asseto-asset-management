@@ -126,3 +126,20 @@ def toggle_default_settings(request, id):
     config.use_default_settings = not config.use_default_settings
     config.save()
     return 
+def delete_favicon(request, id):
+    try:
+        get_logo=get_object_or_404(BrandingImages,pk=id)
+        get_logo.favicon=None
+        get_logo.save()
+    except Exception as e:
+        print(e)
+    return redirect('configurations:upload_logo')
+
+def delete_login_page_logo(request, id):
+    try:
+        get_logo=get_object_or_404(BrandingImages,pk=id)
+        get_logo.login_page_logo=None
+        get_logo.save()
+    except Exception as e:
+        print(e)
+    return redirect('configurations:upload_logo')
